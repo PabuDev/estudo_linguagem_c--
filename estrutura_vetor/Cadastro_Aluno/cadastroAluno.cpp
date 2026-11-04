@@ -1,20 +1,27 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
+
 
 using namespace std;
 
 struct Turma{
-    string nome, turma;
+    string nome, turma, status;
     char sexo;
     int idade;
+    float nota;
 };
+
+void cadastrarAlunO();
 
 int main(){
     int quantidadeAluno;
-    Turma turma[quantidadeAluno];
-    
+
     cout << "Digite a quantidade de aluno da turma: ";
+
     cin >> quantidadeAluno;
+
+    Turma turma[quantidadeAluno];
 
     cout << " -----  Cadastrar Aluno na Turma ------" << endl;
 
@@ -30,13 +37,32 @@ int main(){
 
         cout << "Digite a turma: ";
         cin >> turma[i].turma;
+
+        cout << "Digite a nota: ";
+        cin >> turma[i].nota;
+
+        if(turma[i].nota >= 7){
+            turma[i].status = "Aprovado";
+        }else{
+            turma[i].status = "Reprovado";
+        }
     }
 
+
+    cout << left << setw(15) << "Nome" << 
+    setw (8) << "Idade" << 
+    setw(8) << "Idade" << 
+    setw(8) << "Turma" << 
+    setw(8) << "Nota" <<
+    setw(15) << "Status" << endl;
+
     for(int i = 0; i < quantidadeAluno; i++){
-        cout << turma[i].nome << endl;
-        cout << turma[i].idade << endl;
-        cout << turma[i].sexo << endl;
-        cout << turma[i].turma << endl;
+        cout << left << setw (15) <<turma[i].nome <<
+        setw(8) << turma[i].idade <<
+        setw(8) << turma[i].sexo <<
+        setw(8) << turma[i].turma << 
+        setw(8) << turma[i].nota <<
+        setw(15) << turma[i].status << endl;
     }
 
     return 0;
