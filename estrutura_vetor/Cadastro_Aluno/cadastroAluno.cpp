@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include <iomanip>
 
 
@@ -12,20 +13,36 @@ struct Turma{
     float nota;
 };
 
-void cadastrarAlunO();
+void cadastrarAluno(vector<Turma> &turme);
+void exibirBoletim(const vector<Turma> &turma);
 
 int main(){
-    int quantidadeAluno;
+    const int quantidadeAluno = 3;
 
+    /*
     cout << "Digite a quantidade de aluno da turma: ";
 
     cin >> quantidadeAluno;
+    */
 
-    Turma turma[quantidadeAluno];
+    vector<Turma> turma(quantidadeAluno);
 
-    cout << " -----  Cadastrar Aluno na Turma ------" << endl;
+    //Chamando a função para cadastrar os alunos
+    cadastrarAluno(turma);
+    
+    //Chamando a função para exibir o Boletim dos alunos
+    exibirBoletim(turma);
 
-    for(int i = 0; i < quantidadeAluno; i++){
+
+
+    return 0;
+
+}
+
+//Função para Cadastrar os Alunos na Turma
+void cadastrarAluno(vector<Turma> &turma){
+    cout << " ------- CADASTRAR ALUNO NA TURMA ------- " << endl;
+    for(size_t i = 0;  i < turma.size(); i++){
         cout << "Nome do aluno: ";
         cin >> turma[i].nome;
 
@@ -47,16 +64,19 @@ int main(){
             turma[i].status = "Reprovado";
         }
     }
+}
 
-
+//Função para Exibir os dados dos Aluno em tabela
+void exibirBoletim(const vector<Turma> &turma){
+    cout << " ----- BOLETIM DOS ALUNOS -------" << endl;
     cout << left << setw(15) << "Nome" << 
     setw (8) << "Idade" << 
-    setw(8) << "Idade" << 
+    setw(8) << "Sexo" << 
     setw(8) << "Turma" << 
     setw(8) << "Nota" <<
     setw(15) << "Status" << endl;
 
-    for(int i = 0; i < quantidadeAluno; i++){
+    for(size_t i = 0; i < turma.size(); i++){
         cout << left << setw (15) <<turma[i].nome <<
         setw(8) << turma[i].idade <<
         setw(8) << turma[i].sexo <<
@@ -64,7 +84,5 @@ int main(){
         setw(8) << turma[i].nota <<
         setw(15) << turma[i].status << endl;
     }
-
-    return 0;
-
+    
 }
