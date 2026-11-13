@@ -1,0 +1,8 @@
+NOME              IDADE   SEXO    TURMA   MATRICULA      STATUS         
+3Joao              18      M       T8      8585                          
+Maria             18      F       T8      7575                          
+Luis              16      M       T10     9595                          
+NOME              IDADE   SEXO    TURMA   MATRICULA      STATUS         
+3Carlos            18      M       T10     8585                          
+Carla             18      F       T10     1515                          
+Luisa             18      F       T10     6565                          
